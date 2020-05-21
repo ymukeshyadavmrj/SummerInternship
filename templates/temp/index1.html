@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Images</title>
+    <link rel="stylesheet" href="{% static "css/mycss.css"%}">
+  </head>
+  <body>
+    <h1>List of webpage</h1>
+     <div class="djangoone">
+       {% if access_records %}
+        <table>
+          <thead>
+            <th>Site name</th>
+            <th>Date accessed</th>
+          </thead>
+          {% for acc in access_records %}
+          <tr>
+            <td>{{acc.name}}</td>
+            <td>{{acc.date}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>no record found!!</p>
+        {% endif %}
+     </div>
+  </body>
+</html>
